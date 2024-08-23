@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}New Workorder{% endblock %}
+
+{% block content %}
+<h1>New Workorder</h1>
+
+<form method="POST" action="{{ url_for('new_workorder') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.workorder_no.label }}<br>
+        {{ form.workorder_no(size=32) }}
+    </div>
+    <div>
+        {{ form.workorder_date.label }}<br>
+        {{ form.workorder_date() }}
+    </div>
+    <div>
+        {{ form.item_name.label }}<br>
+        {{ form.item_name() }}
+    </div>
+    <div>
+        {{ form.consignee.label }}<br>
+        {{ form.consignee() }}
+    </div>
+    <div>
+        {{ form.allocation_no.label }}<br>
+        {{ form.allocation_no(size=32) }}
+    </div>
+    <div>
+        {{ form.quantity.label }}<br>
+        {{ form.quantity() }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}
