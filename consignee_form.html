@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}New Consignee{% endblock %}
+
+{% block content %}
+<h1>New Consignee</h1>
+
+<form method="POST" action="{{ url_for('new_consignee') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.zone.label }}<br>
+        {{ form.zone() }}
+    </div>
+    <div>
+        {{ form.division.label }}<br>
+        {{ form.division() }}
+    </div>
+    <div>
+        {{ form.indenter.label }}<br>
+        {{ form.indenter(size=32) }}
+    </div>
+    <div>
+        {{ form.consignee.label }}<br>
+        {{ form.consignee(size=32) }}
+    </div>
+    <div>
+        {{ form.consignee_type.label }}<br>
+        {{ form.consignee_type() }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}
