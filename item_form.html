@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}New Item{% endblock %}
+
+{% block content %}
+<h1>New Item</h1>
+
+<form method="POST" action="{{ url_for('new_item') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.item_name.label }}<br>
+        {{ form.item_name(size=32) }}
+    </div>
+    <div>
+        {{ form.item_description.label }}<br>
+        {{ form.item_description(size=32) }}
+    </div>
+    <div>
+        {{ form.item_type.label }}<br>
+        {{ form.item_type() }}
+    </div>
+    <div>
+        {{ form.sg_number.label }}<br>
+        {{ form.sg_number(size=32) }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}
