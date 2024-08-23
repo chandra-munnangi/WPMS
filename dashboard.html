@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<form method="GET" action="{{ url_for('dashboard') }}">
+    <label for="filter">Filter By:</label>
+    <select name="filter">
+        <option value="item">Item</option>
+        <option value="consignee">Consignee</option>
+    </select>
+    <input type="submit" value="Filter">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sl. No</th>
+            <th>Item Name</th>
+            <th>Item Type</th>
+            <th>SG No</th>
+            <th>Total Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for workorder in workorders %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ workorder.item_name }}</td>
+            <td>{{ workorder.item_type }}</td>
+            <td>{{ workorder.sg_number or '' }}</td>
+            <td>{{ workorder.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
